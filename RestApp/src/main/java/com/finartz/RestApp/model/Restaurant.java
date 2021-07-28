@@ -14,7 +14,6 @@ import java.util.List;
 @Entity
 @Table(name="restaurants")
 public class Restaurant extends BaseDTO{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

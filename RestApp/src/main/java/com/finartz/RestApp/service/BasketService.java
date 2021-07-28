@@ -36,12 +36,7 @@ public class BasketService {
         return basket;
     }
 
-    public Basket deleteById(Long id){
-        Basket basket = basketRepository.getById(id);
-        if (basket != null) {
-            basketRepository.deleteById(id);
-            return basket;
-        }
-        return basket;
+    public void deleteById(Long id){
+        basketRepository.deleteById(id);
     }
 }

@@ -36,12 +36,7 @@ public class BranchService {
         return branch;
     }
 
-    public Branch deleteById(Long id){
-        Branch branch = branchRepository.getById(id);
-        if (branch != null) {
-            branchRepository.deleteById(id);
-            return branch;
-        }
-        return branch;
+    public void deleteById(Long id){
+        branchRepository.deleteById(id);
     }
 }

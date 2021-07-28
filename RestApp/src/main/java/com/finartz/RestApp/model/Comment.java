@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "comments")
 public class Comment extends BaseDTO{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

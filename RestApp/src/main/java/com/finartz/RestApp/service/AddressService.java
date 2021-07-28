@@ -36,6 +36,6 @@ public class AddressService {
     }
 
     public void deleteById(Long id){
-        AddressRepository.deleteById(id);
+        addressRepository.deleteById(id);
     }
 }

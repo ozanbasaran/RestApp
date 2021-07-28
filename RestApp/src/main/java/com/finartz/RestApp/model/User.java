@@ -14,7 +14,6 @@ import java.util.List;
 @Entity
 @Table(name="users")
 public class User extends BaseDTO{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

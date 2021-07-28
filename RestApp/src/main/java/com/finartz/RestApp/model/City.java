@@ -13,7 +13,6 @@ import java.util.List;
 @Entity
 @Table(name="cities")
 public class City extends BaseDTO{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

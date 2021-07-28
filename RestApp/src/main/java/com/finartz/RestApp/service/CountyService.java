@@ -36,7 +36,7 @@ public class CountyService {
     }
 
     public void deleteById(Long id){
-        CountyRepository.deleteById(id);
+        countyRepository.deleteById(id);
     }
 }
 

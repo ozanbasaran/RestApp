@@ -36,7 +36,7 @@ public class CreditCardService {
     }
 
     public void deleteById(Long id){
-        CreditCardRepository.deleteById(id);
+        creditcardRepository.deleteById(id);
     }
 }
 

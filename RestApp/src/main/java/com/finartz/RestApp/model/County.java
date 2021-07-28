@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "County")
 public class County extends BaseDTO{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

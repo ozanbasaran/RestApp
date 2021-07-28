@@ -1,8 +1,16 @@
 package com.finartz.RestApp.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.sql.Date;
 
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "orders")
 public class Orders extends BaseDTO{
@@ -23,4 +31,6 @@ public class Orders extends BaseDTO{
     @OneToOne
     @JoinColumn(name = "card_id", referencedColumnName = "id")
     private CreditCard creditCard;
+
+
 }

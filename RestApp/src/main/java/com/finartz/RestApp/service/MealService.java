@@ -36,7 +36,7 @@ public class MealService {
     }
 
     public void deleteById(Long id){
-        MealRepository.deleteById(id);
+        mealRepository.deleteById(id);
     }
 }
 

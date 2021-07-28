@@ -36,6 +36,6 @@ public class CityService {
     }
 
     public void deleteById(Long id){
-        CityRepository.deleteById(id);
+        cityRepository.deleteById(id);
     }
 }

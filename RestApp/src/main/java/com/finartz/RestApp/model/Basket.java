@@ -15,7 +15,6 @@ import java.util.List;
 
 @Table(name = "basket")
 public class Basket extends BaseDTO{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

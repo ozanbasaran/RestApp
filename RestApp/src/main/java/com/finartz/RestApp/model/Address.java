@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Entity
 @Table(name="addresses")
 public class Address extends BaseDTO{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

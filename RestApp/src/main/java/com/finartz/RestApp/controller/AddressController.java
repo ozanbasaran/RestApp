@@ -5,16 +5,8 @@ import com.finartz.RestApp.service.AddressService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-//localhost:8080/address/1
-//localhost:8080/address?id=1
-//localhost:8080/address {address}
-//GET, POST, PUT, DELETE
-//PathVariable, RequestParam, RequestBody
 
 @RestController
 @RequestMapping("address")
@@ -24,6 +16,11 @@ public class AddressController {
 
     public AddressController(AddressService addressService) {
         this.addressService = addressService;
+    }
+
+    @PostMapping
+    public ResponseEntity<Address> create(@RequestBody Address address){
+        return new ResponseEntity(addressService.create(address), HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -36,5 +33,14 @@ public class AddressController {
         return new ResponseEntity(addressService.findById(id), HttpStatus.OK);
     }
 
-/////   PostMapping, HttpStatus.Created
+    @PutMapping
+    public ResponseEntity<Address> update(@RequestBody Address address){
+        return new ResponseEntity(addressService.update(address), HttpStatus.OK);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<Address> deleteById(@PathVariable Long id){
+        addressService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

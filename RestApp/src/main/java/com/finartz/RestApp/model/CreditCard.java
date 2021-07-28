@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "credit_card")
 public class CreditCard extends BaseDTO{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

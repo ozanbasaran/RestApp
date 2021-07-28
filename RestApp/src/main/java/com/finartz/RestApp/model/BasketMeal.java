@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "basket_meals")
 public class BasketMeal extends BaseDTO{
-
     @EmbeddedId
     private BasketMealKey id;
 

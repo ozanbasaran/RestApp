@@ -2,14 +2,12 @@ package com.finartz.RestApp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Data
-@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
