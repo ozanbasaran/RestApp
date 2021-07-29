@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_16">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -37,7 +37,9 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.31" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.5.2" level="project" />
@@ -55,7 +57,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.5.1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-webflux:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-json:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.12.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.12.3" level="project" />
@@ -63,34 +66,14 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.12.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.12.3" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-reactor-netty:2.5.2" level="project" />
-    <orderEntry type="library" name="Maven: io.projectreactor.netty:reactor-netty-http:1.0.8" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec-http:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec-http2:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec-dns:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-native-macos:osx-x86_64:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-transport-native-unix-common:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.projectreactor.netty:reactor-netty-core:1.0.8" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-handler-proxy:4.1.65.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec-socks:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.48" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:9.0.48" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.48" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.8" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-webflux:5.3.8" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:3.0.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.8" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.8" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.8" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.8" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-asm:3.0.5.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.microsoft.sqlserver:mssql-jdbc:9.2.1.jre8" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.25" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.8" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:1.4.200" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-configuration-processor:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.20" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.5.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.5.2" level="project" />
@@ -117,11 +100,10 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-junit-jupiter:3.9.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.skyscreamer:jsonassert:1.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.8" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.8" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.projectreactor:reactor-test:3.4.7" level="project" />
-    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.4.7" level="project" />
-    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.security:spring-security-test:5.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.5.1" level="project" />
