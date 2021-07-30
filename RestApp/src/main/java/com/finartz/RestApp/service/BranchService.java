@@ -28,12 +28,14 @@ public class BranchService {
     }
 
     public Branch update(Branch branch){
-        Branch update = branchRepository.getById(branch.getId());
-        if(update != null) {
-            branchRepository.save(branch);
-            return update;
+        Branch foundBranch = branchRepository.getById(branch.getId());
+        if (branch.getStatus() != null) {
+            foundBranch.setStatus(branch.getStatus());
         }
-        return branch;
+        if (branch.getName() != null) {
+            foundBranch.setName(branch.getName());
+        }
+        return branchRepository.save(branch);
     }
 
     public void deleteById(Long id){

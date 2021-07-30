@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.Restaurant;
+import com.finartz.RestApp.model.Restaurant;
 import com.finartz.RestApp.repository.RestaurantRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,17 @@ public class RestaurantService {
     }
 
     public Restaurant update(Restaurant restaurant){
-        Restaurant update = restaurantRepository.getById((long) restaurant.getId());
-        if(update != null) {
-            restaurantRepository.save(restaurant);
-            return update;
+        Restaurant foundRestaurant = restaurantRepository.getById(restaurant.getId());
+        if(restaurant.getBranchList()!=null){
+            foundRestaurant.setBranchList(restaurant.getBranchList());
         }
-        return restaurant;
+        if(restaurant.getStatus()!=null){
+            foundRestaurant.setStatus(restaurant.getStatus());
+        }
+        if(restaurant.getUser() != null) {
+            foundRestaurant.setUser(restaurant.getUser());
+        }
+        return restaurantRepository.save(restaurant);
     }
 
     public void deleteById(Long id){

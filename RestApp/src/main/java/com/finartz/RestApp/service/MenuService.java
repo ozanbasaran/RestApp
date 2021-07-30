@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.Menu;
+import com.finartz.RestApp.model.Menu;
 import com.finartz.RestApp.repository.MenuRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,14 @@ public class MenuService {
     }
 
     public Menu update(Menu menu){
-        Menu update = menuRepository.getById((long) menu.getId());
-        if(update != null) {
-            menuRepository.save(menu);
-            return update;
+        Menu foundMenu = menuRepository.getById(menu.getId());
+        if(menu.getBranch()!=null){
+            foundMenu.setBranch(menu.getBranch());
         }
-        return menu;
+        if(menu.getMealList()!=null){
+            foundMenu.setMealList(menu.getMealList());
+        }
+        return menuRepository.save(menu);
     }
 
     public void deleteById(Long id){

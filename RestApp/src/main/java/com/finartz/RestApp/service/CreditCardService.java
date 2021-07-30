@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.CreditCard;
+import com.finartz.RestApp.model.CreditCard;
 import com.finartz.RestApp.repository.CreditCardRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,12 @@ public class CreditCardService {
     }
 
     public CreditCard update(CreditCard creditCard){
-        CreditCard update = creditcardRepository.getById((long) creditCard.getId());
-        if(update != null) {
-            creditcardRepository.save(creditCard);
-            return update;
+        CreditCard foundCreditCard = creditcardRepository.getById(creditCard.getId());
+        if(creditCard.getName()!=null){
+            foundCreditCard.setName(creditCard.getName());
         }
-        return creditCard;
+
+        return creditcardRepository.save(creditCard);
     }
 
     public void deleteById(Long id){

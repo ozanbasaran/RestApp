@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.Meal;
+import com.finartz.RestApp.model.Meal;
 import com.finartz.RestApp.repository.MealRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,17 @@ public class MealService {
     }
 
     public Meal update(Meal meal){
-        Meal update = mealRepository.getById((long) meal.getId());
-        if(update != null) {
-            mealRepository.save(meal);
-            return update;
+        Meal foundMeal = mealRepository.getById(meal.getId());
+        if(meal.getMenu()!=null){
+            foundMeal.setMenu(meal.getMenu());
         }
-        return meal;
+        if(meal.getName()!=null){
+            foundMeal.setName(meal.getName());
+        }
+        if(meal.getPrice() != null) {
+            foundMeal.setPrice(meal.getPrice());
+        }
+        return mealRepository.save(meal);
     }
 
     public void deleteById(Long id){

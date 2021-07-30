@@ -1,6 +1,7 @@
 package com.finartz.RestApp.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name="addresses")
 public class Address extends BaseDTO{
     @Id
@@ -38,5 +40,7 @@ public class Address extends BaseDTO{
     private String other_content;
 
     private Boolean enable;
+
+    private String name;
 }
 

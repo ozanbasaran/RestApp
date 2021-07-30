@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.County;
+import com.finartz.RestApp.model.County;
 import com.finartz.RestApp.repository.CountyRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,11 @@ public class CountyService {
     }
 
     public County update(County county){
-        County update = countyRepository.getById((long) county.getId());
-        if(update != null) {
-            countyRepository.save(county);
-            return update;
+        County foundCounty = countyRepository.getById(county.getId());
+        if(county.getName()!=null){
+            foundCounty.setName(county.getName());
         }
-        return county;
+        return countyRepository.save(county);
     }
 
     public void deleteById(Long id){

@@ -1,6 +1,7 @@
 package com.finartz.RestApp.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 
 @Table(name = "basket")
 public class Basket extends BaseDTO{
@@ -20,7 +22,7 @@ public class Basket extends BaseDTO{
     private Long id;
 
     @Column(name = "total_price")
-    private Float totalPrice;
+    private Double totalPrice;
 
     @Column(name = "count")
     private Long count;

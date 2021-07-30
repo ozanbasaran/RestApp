@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.City;
+import com.finartz.RestApp.model.City;
 import com.finartz.RestApp.repository.CityRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,14 @@ public class CityService {
     }
 
     public City update(City city){
-        City update = cityRepository.getById((long) city.getId());
-        if(update != null) {
-            cityRepository.save(city);
-            return update;
+        City foundCity = cityRepository.getById(city.getId());
+        if (city.getName() != null) {
+            foundCity.setName(city.getName());
         }
-        return city;
+        if (city.getCountySet() != null) {
+            foundCity.setCountySet(city.getCountySet());
+        }
+        return cityRepository.save(city);
     }
 
     public void deleteById(Long id){

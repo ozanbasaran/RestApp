@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.User;
+import com.finartz.RestApp.model.User;
 import com.finartz.RestApp.repository.UserRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,26 @@ public class UserService {
     }
 
     public User update(User user){
-        User update = userRepository.getById((long) user.getId());
-        if(update != null) {
-            userRepository.save(user);
-            return update;
+        User foundUser = userRepository.getById(user.getId());
+        if(user.getAddressList()!=null){
+            foundUser.setAddressList(user.getAddressList());
         }
-        return user;
+        if(user.getCommentList()!=null){
+            foundUser.setCommentList(user.getCommentList());
+        }
+        if(user.getPassword() != null) {
+            foundUser.setPassword(user.getPassword());
+        }
+        if(user.getCreditCardList()!=null){
+            foundUser.setCreditCardList(user.getCreditCardList());
+        }
+        if(user.getRestaurantList()!=null){
+            foundUser.setRestaurantList(user.getRestaurantList());
+        }
+        if(user.getRole()!=null){
+            foundUser.setRole(user.getRole());
+        }
+        return userRepository.save(user);
     }
 
     public void deleteById(Long id){

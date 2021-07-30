@@ -27,12 +27,17 @@ public class AddressService {
     }
 
     public Address update(Address address){
-        Address update = addressRepository.getById(address.getId());
-        if(update != null) {
-            addressRepository.save(address);
-            return update;
+        Address foundAddress = addressRepository.getById(address.getId());
+        if(address.getCity()!=null){
+            foundAddress.setCity(address.getCity());
         }
-        return address;
+        if(address.getCounty()!=null){
+            foundAddress.setCounty(address.getCounty());
+        }
+        if(address.getDistrict() != null) {
+            foundAddress.setDistrict(address.getDistrict());
+        }
+        return addressRepository.save(address);
     }
 
     public void deleteById(Long id){

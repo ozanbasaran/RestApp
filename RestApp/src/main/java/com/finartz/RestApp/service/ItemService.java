@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.Item;
+import com.finartz.RestApp.model.Item;
 import com.finartz.RestApp.repository.ItemRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -26,13 +27,12 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public  Item update(Item item){
-        Item update = itemRepository.getById((long) item.getId());
-        if(update != null) {
-            itemRepository.save(item);
-            return update;
+    public Item update(Item item){
+        Item foundItem = itemRepository.getById(item.getId());
+        if(item.getName()!=null){
+            foundItem.setName(item.getName());
         }
-        return item;
+        return itemRepository.save(item);
     }
 
     public void deleteById(Long id){

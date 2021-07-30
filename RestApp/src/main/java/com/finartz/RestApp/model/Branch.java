@@ -2,6 +2,7 @@ package com.finartz.RestApp.model;
 
 import com.finartz.RestApp.model.enumerated.Status;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name="branch")
 public class Branch extends BaseDTO{
 
@@ -30,6 +32,8 @@ public class Branch extends BaseDTO{
 
     @OneToOne(mappedBy = "branch", fetch = FetchType.LAZY)
     private Address address;
+
+    private String name;
 
 }
 

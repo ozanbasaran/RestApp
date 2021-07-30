@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.Orders;
+import com.finartz.RestApp.model.Orders;
 import com.finartz.RestApp.repository.OrdersRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,20 @@ public class OrdersService {
     }
 
     public Orders update(Orders orders){
-        Orders update = ordersRepository.getById((long) orders.getId());
-        if(update != null) {
-            ordersRepository.save(orders);
-            return update;
+        Orders foundOrders = ordersRepository.getById(orders.getId());
+        if(orders.getBasket()!=null){
+            foundOrders.setBasket(orders.getBasket());
         }
-        return orders;
+        if(orders.getCreditCard()!=null){
+            foundOrders.setCreditCard(orders.getCreditCard());
+        }
+        if(orders.getDate() != null) {
+            foundOrders.setDate(orders.getDate());
+        }
+        if(orders.getTotalPrice() != null) {
+            foundOrders.setTotalPrice(orders.getTotalPrice());
+        }
+        return ordersRepository.save(orders);
     }
 
     public void deleteById(Long id){

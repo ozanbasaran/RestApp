@@ -1,6 +1,7 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.Comment;
+import com.finartz.RestApp.model.Comment;
 import com.finartz.RestApp.repository.CommentRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,17 @@ public class CommentService {
     }
 
     public Comment update(Comment comment){
-        Comment update = commentRepository.getById((long) comment.getId());
-        if(update != null) {
-            commentRepository.save(comment);
-            return update;
+        Comment foundComment = commentRepository.getById(comment.getId());
+        if(comment.getBranch()!=null){
+            foundComment.setBranch(comment.getBranch());
         }
-        return comment;
+        if(comment.getComment()!=null){
+            foundComment.setComment(comment.getComment());
+        }
+        if(comment.getUser() != null) {
+            foundComment.setUser(comment.getUser());
+        }
+        return commentRepository.save(comment);
     }
 
     public void deleteById(Long id){

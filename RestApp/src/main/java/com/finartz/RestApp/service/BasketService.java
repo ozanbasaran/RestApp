@@ -28,12 +28,11 @@ public class BasketService {
     }
 
     public Basket update(Basket basket){
-        Basket update = basketRepository.getById(basket.getId());
-        if(update != null) {
-            basketRepository.save(basket);
-            return update;
+        Basket foundBasket = basketRepository.getById(basket.getId());
+        if (basket.getTotalPrice() != null) {
+            foundBasket.setTotalPrice(basket.getTotalPrice());
         }
-        return basket;
+        return basketRepository.save(basket);
     }
 
     public void deleteById(Long id){
