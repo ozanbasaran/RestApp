@@ -31,4 +31,6 @@ public class Restaurant extends BaseDTO{
     @OneToMany(mappedBy = "restaurant")
     private List<Branch> branchList;
 
+    private String name;
+
 }

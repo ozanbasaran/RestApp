@@ -24,13 +24,15 @@ public class CreditCard extends BaseDTO{
 
     private String name;
 
+    private String NickName;
+
     @Column(name = "exp_month")
-    private int expMonth;
+    private Integer expMonth;
 
     @Column(name = "exp_year")
-    private int expYear;
+    private Integer expYear;
 
-    private int ccv;
+    private Integer ccv;
 
     @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)

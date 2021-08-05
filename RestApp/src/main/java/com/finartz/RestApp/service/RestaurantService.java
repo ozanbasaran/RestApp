@@ -1,48 +1,22 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.Restaurant;
-import com.finartz.RestApp.model.Restaurant;
-import com.finartz.RestApp.repository.RestaurantRepository;
+import com.finartz.RestApp.model.enumerated.Status;
+
 import java.util.List;
-import org.springframework.stereotype.Service;
 
-@Service
-public class RestaurantService {
+public interface RestaurantService {
 
-    private final RestaurantRepository restaurantRepository;
+    public Restaurant create(Restaurant restaurant);
 
-    public RestaurantService(RestaurantRepository restaurantRepository) {
-        this.restaurantRepository = restaurantRepository;
-    }
+    public List<Restaurant> findAll();
 
-    public List<Restaurant> findAll(){
-        return restaurantRepository.findAll();
-    }
+    public Restaurant findById(Long id);
 
-    public Restaurant findById(Long id) {
-        return restaurantRepository.getById(id);
-    }
+    public List<Restaurant> findByStatus(Status status);
 
-    public Restaurant create(Restaurant restaurant) {
-        return restaurantRepository.save(restaurant);
-    }
+    public Restaurant update(Restaurant restaurant);
 
-    public Restaurant update(Restaurant restaurant){
-        Restaurant foundRestaurant = restaurantRepository.getById(restaurant.getId());
-        if(restaurant.getBranchList()!=null){
-            foundRestaurant.setBranchList(restaurant.getBranchList());
-        }
-        if(restaurant.getStatus()!=null){
-            foundRestaurant.setStatus(restaurant.getStatus());
-        }
-        if(restaurant.getUser() != null) {
-            foundRestaurant.setUser(restaurant.getUser());
-        }
-        return restaurantRepository.save(restaurant);
-    }
-
-    public void deleteById(Long id){
-        restaurantRepository.deleteById(id);
-    }
+    public Restaurant deleteById(Long id);
 }
 

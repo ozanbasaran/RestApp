@@ -1,42 +1,19 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.County;
-import com.finartz.RestApp.model.County;
-import com.finartz.RestApp.repository.CountyRepository;
+
 import java.util.List;
-import org.springframework.stereotype.Service;
 
-@Service
-public class CountyService {
+public interface CountyService {
 
-    private final CountyRepository countyRepository;
+    public County create(County county);
 
-    public CountyService(CountyRepository countyRepository) {
-        this.countyRepository = countyRepository;
-    }
+    public List<County> findAll();
 
-    public List<County> findAll(){
-        return countyRepository.findAll();
-    }
+    public County findById(Long id);
 
-    public County findById(Long id) {
-        return countyRepository.getById(id);
-    }
+    public County update(County county);
 
-    public County create(County county) {
-        return countyRepository.save(county);
-    }
+    public County deleteById(Long id);
 
-    public County update(County county){
-        County foundCounty = countyRepository.getById(county.getId());
-        if(county.getName()!=null){
-            foundCounty.setName(county.getName());
-        }
-        return countyRepository.save(county);
-    }
-
-    public void deleteById(Long id){
-        countyRepository.deleteById(id);
-    }
 }
-

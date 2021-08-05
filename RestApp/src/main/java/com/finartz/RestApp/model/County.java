@@ -18,6 +18,8 @@ public class County extends BaseDTO{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private City city;
+
     private String name;
 
 }

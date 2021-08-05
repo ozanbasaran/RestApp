@@ -1,48 +1,19 @@
 package com.finartz.RestApp.service;
 
 import com.finartz.RestApp.model.Meal;
-import com.finartz.RestApp.model.Meal;
-import com.finartz.RestApp.repository.MealRepository;
+
 import java.util.List;
-import org.springframework.stereotype.Service;
 
-@Service
-public class MealService {
+public interface MealService {
 
-    private final MealRepository mealRepository;
+    public Meal create(Meal meal);
 
-    public MealService(MealRepository mealRepository) {
-        this.mealRepository = mealRepository;
-    }
+    public List<Meal> findAll();
 
-    public List<Meal> findAll(){
-        return mealRepository.findAll();
-    }
+    public Meal findById(Long id);
 
-    public Meal findById(Long id) {
-        return mealRepository.getById(id);
-    }
+    public Meal update(Meal meal);
 
-    public Meal create(Meal meal) {
-        return mealRepository.save(meal);
-    }
+    public Meal deleteById(Long id);
 
-    public Meal update(Meal meal){
-        Meal foundMeal = mealRepository.getById(meal.getId());
-        if(meal.getMenu()!=null){
-            foundMeal.setMenu(meal.getMenu());
-        }
-        if(meal.getName()!=null){
-            foundMeal.setName(meal.getName());
-        }
-        if(meal.getPrice() != null) {
-            foundMeal.setPrice(meal.getPrice());
-        }
-        return mealRepository.save(meal);
-    }
-
-    public void deleteById(Long id){
-        mealRepository.deleteById(id);
-    }
 }
-
