@@ -1,12 +1,12 @@
 package com.finartz.RestApp.controller;
 
-import com.finartz.RestApp.model.Menu;
+import com.finartz.RestApp.model.entity.MenuEntity;
 import com.finartz.RestApp.service.MenuService;
-import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 @RestController
 @RequestMapping("menu")
@@ -14,34 +14,33 @@ public class MenuController {
 
     private final MenuService menuService;
 
-    public MenuController (MenuService menuService) {
+    public MenuController(MenuService menuService) {
         this.menuService = menuService;
     }
 
-
-
-    @PostMapping
-    public ResponseEntity<Menu> create(@RequestBody Menu menu){
-        return new ResponseEntity(menuService.create(menu), HttpStatus.CREATED);
+    @GetMapping("{id}")
+    public ResponseEntity<MenuEntity> getMenu(@PathVariable Long id){
+        return new ResponseEntity(menuService.getMenu(id), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<Menu>> getAll(){
-        return new ResponseEntity(menuService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<MenuEntity>> getMenus(){
+        return new ResponseEntity(menuService.getMenus(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Menu> getById(@PathVariable Long id){
-        return new ResponseEntity(menuService.findById(id), HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<MenuEntity> createMenu(@RequestBody MenuEntity menuEntity){
+        return new ResponseEntity(menuService.createMenu(menuEntity), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<Menu> update(@RequestBody Menu menu){
-        return new ResponseEntity(menuService.update(menu), HttpStatus.OK);
+    public ResponseEntity<MenuEntity> updateMenu(@RequestBody MenuEntity menuEntity){
+        return new ResponseEntity(menuService.updateMenu(menuEntity), HttpStatus.OK);
     }
+
     @DeleteMapping("{id}")
-    public ResponseEntity deleteById(@PathVariable Long id){
-        menuService.deleteById(id);
+    public ResponseEntity<MenuEntity> deleteMenu(@PathVariable Long id){
+        menuService.deleteMenu(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

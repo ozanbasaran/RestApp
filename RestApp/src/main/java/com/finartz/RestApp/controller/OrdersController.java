@@ -1,12 +1,12 @@
 package com.finartz.RestApp.controller;
 
-import com.finartz.RestApp.model.Orders;
+import com.finartz.RestApp.model.entity.OrdersEntity;
 import com.finartz.RestApp.service.OrdersService;
-import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 @RestController
 @RequestMapping("orders")
@@ -14,34 +14,33 @@ public class OrdersController {
 
     private final OrdersService ordersService;
 
-    public OrdersController (OrdersService ordersService) {
+    public OrdersController(OrdersService ordersService) {
         this.ordersService = ordersService;
     }
 
-
-
-    @PostMapping
-    public ResponseEntity<Orders> create(@RequestBody Orders orders){
-        return new ResponseEntity(ordersService.create(orders), HttpStatus.CREATED);
+    @GetMapping("{id}")
+    public ResponseEntity<OrdersEntity> getOrders(@PathVariable Long id){
+        return new ResponseEntity(ordersService.getOrders(id), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<Orders>> getAll(){
-        return new ResponseEntity(ordersService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<OrdersEntity>> getOrderss(){
+        return new ResponseEntity(ordersService.getOrderss(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Orders> getById(@PathVariable Long id){
-        return new ResponseEntity(ordersService.findById(id), HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<OrdersEntity> createOrders(@RequestBody OrdersEntity ordersEntity){
+        return new ResponseEntity(ordersService.createOrders(ordersEntity), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<Orders> update(@RequestBody Orders orders){
-        return new ResponseEntity(ordersService.update(orders), HttpStatus.OK);
+    public ResponseEntity<OrdersEntity> updateOrders(@RequestBody OrdersEntity ordersEntity){
+        return new ResponseEntity(ordersService.updateOrders(ordersEntity), HttpStatus.OK);
     }
+
     @DeleteMapping("{id}")
-    public ResponseEntity<Orders> deleteById(@PathVariable Long id){
-        ordersService.deleteById(id);
+    public ResponseEntity<OrdersEntity> deleteOrders(@PathVariable Long id){
+        ordersService.deleteOrders(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

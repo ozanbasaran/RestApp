@@ -1,12 +1,12 @@
 package com.finartz.RestApp.controller;
 
-import com.finartz.RestApp.model.CreditCard;
+import com.finartz.RestApp.model.entity.CreditCardEntity;
 import com.finartz.RestApp.service.CreditCardService;
-import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 @RestController
 @RequestMapping("creditCard")
@@ -14,34 +14,33 @@ public class CreditCardController {
 
     private final CreditCardService creditCardService;
 
-    public CreditCardController (CreditCardService creditCardService) {
+    public CreditCardController(CreditCardService creditCardService) {
         this.creditCardService = creditCardService;
     }
 
-
-
-    @PostMapping
-    public ResponseEntity<CreditCard> create(@RequestBody CreditCard creditCard){
-        return new ResponseEntity(creditCardService.create(creditCard), HttpStatus.CREATED);
+    @GetMapping("{id}")
+    public ResponseEntity<CreditCardEntity> getCreditCard(@PathVariable Long id){
+        return new ResponseEntity(creditCardService.getCreditCard(id), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<CreditCard>> getAll(){
-        return new ResponseEntity(creditCardService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<CreditCardEntity>> getCreditCards(){
+        return new ResponseEntity(creditCardService.getCreditCards(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CreditCard> getById(@PathVariable Long id){
-        return new ResponseEntity(creditCardService.findById(id), HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<CreditCardEntity> createCreditCard(@RequestBody CreditCardEntity creditCardEntity){
+        return new ResponseEntity(creditCardService.createCreditCard(creditCardEntity), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<CreditCard> update(@RequestBody CreditCard creditCard){
-        return new ResponseEntity(creditCardService.update(creditCard), HttpStatus.OK);
+    public ResponseEntity<CreditCardEntity> updateCreditCard(@RequestBody CreditCardEntity creditCardEntity){
+        return new ResponseEntity(creditCardService.updateCreditCard(creditCardEntity), HttpStatus.OK);
     }
+
     @DeleteMapping("{id}")
-    public ResponseEntity<CreditCard> deleteById(@PathVariable Long id){
-        creditCardService.deleteById(id);
+    public ResponseEntity<CreditCardEntity> deleteCreditCard(@PathVariable Long id){
+        creditCardService.deleteCreditCard(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

@@ -1,43 +1,58 @@
 package com.finartz.RestApp.controller;
 
-import com.finartz.RestApp.model.Branch;
+import com.finartz.RestApp.model.entity.AddressEntity;
+import com.finartz.RestApp.model.entity.BranchEntity;
+import com.finartz.RestApp.model.enumerated.Status;
 import com.finartz.RestApp.service.BranchService;
-import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("branch")
 public class BranchController {
 
     private final BranchService branchService;
+
     public BranchController(BranchService branchService) {
         this.branchService = branchService;
     }
 
-    @PostMapping
-    public ResponseEntity<Branch> create(@RequestBody Branch branch){
-        return new ResponseEntity(branchService.create(branch), HttpStatus.CREATED);
-    }
-
     @GetMapping
-    public ResponseEntity<List<Branch>> getAll(){
-        return new ResponseEntity(branchService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<BranchEntity>> getBranches(){
+        return new ResponseEntity(branchService.getBranches(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Branch> getById(@PathVariable Long id){
-        return new ResponseEntity(branchService.findById(id), HttpStatus.OK);
+    @GetMapping("{id}")
+    public ResponseEntity<BranchEntity> getBranch(@PathVariable Long id){
+        return new ResponseEntity(branchService.getBranch(id), HttpStatus.OK);
+    }
+
+    @GetMapping("waiting")
+    public ResponseEntity<List<BranchEntity>> getBranches(Status status){
+        return new ResponseEntity(branchService.getBranches(status), HttpStatus.OK);
+    }
+
+    @GetMapping("bycounty")
+    public ResponseEntity<List<BranchEntity>> getBranches(AddressEntity addressEntity){
+        return new ResponseEntity(branchService.getBranches(addressEntity), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<BranchEntity> createBranch(@RequestBody BranchEntity branchEntity){
+        return new ResponseEntity(branchService.createBranch(branchEntity), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<Branch> update(@RequestBody Branch branch){
-        return new ResponseEntity(branchService.update(branch), HttpStatus.OK);
+    public ResponseEntity<BranchEntity> updateBranch(@RequestBody BranchEntity branchEntity){
+        return new ResponseEntity(branchService.updateBranch(branchEntity), HttpStatus.OK);
     }
+
     @DeleteMapping("{id}")
-    public ResponseEntity<Branch> deleteById(@PathVariable Long id){
-        branchService.deleteById(id);
+    public ResponseEntity<BranchEntity> deleteBranch(@PathVariable Long id){
+        branchService.deleteBranch(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
