@@ -1,19 +1,19 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Meal;
+import com.finartz.RestApp.model.entity.MealEntity;
 
 import java.util.List;
 
 public interface MealService {
 
-    public Meal create(Meal meal);
+    public List<MealEntity> getMeals();
 
-    public List<Meal> findAll();
+    public MealEntity getMeal(Long id);
 
-    public Meal findById(Long id);
+    public MealEntity createMeal(MealEntity mealEntity);
 
-    public Meal update(Meal meal);
+    public MealEntity updateMeal(MealEntity mealEntity);
 
-    public Meal deleteById(Long id);
+    public MealEntity deleteMeal(Long id);
 
 }

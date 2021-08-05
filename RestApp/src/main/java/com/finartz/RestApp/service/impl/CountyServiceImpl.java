@@ -1,6 +1,6 @@
 package com.finartz.RestApp.service.impl;
 
-import com.finartz.RestApp.model.County;
+import com.finartz.RestApp.model.entity.CountyEntity;
 import com.finartz.RestApp.repository.CountyRepository;
 import com.finartz.RestApp.service.CountyService;
 import org.springframework.stereotype.Service;
@@ -17,43 +17,43 @@ public class CountyServiceImpl implements CountyService {
     }
 
     @Override
-    public County create(County county){
-        County save = countyRepository.save(county);
-        return save;
-    }
-
-    @Override
-    public List<County> findAll(){
-        List<County> counties = countyRepository.findAll();
+    public List<CountyEntity> getCounties(){
+        List<CountyEntity> counties = countyRepository.findAll();
         return counties;
     }
 
     @Override
-    public County findById(Long id){
-        County county = countyRepository.getById(id);
-        return county;
+    public CountyEntity getCounty(Long id){
+        CountyEntity countyEntity = countyRepository.getById(id);
+        return countyEntity;
     }
 
     @Override
-    public County update(County county){
-        County foundCounty = countyRepository.getById(county.getId());
+    public CountyEntity createCounty(CountyEntity countyEntity){
+        CountyEntity save = countyRepository.save(countyEntity);
+        return save;
+    }
 
-        if(county.getName() != null)
-            foundCounty.setName(county.getName());
-        if(county.getCity() != null)
-            foundCounty.setCity(county.getCity());
+    @Override
+    public CountyEntity updateCounty(CountyEntity countyEntity){
+        CountyEntity foundCountyEntity = countyRepository.getById(countyEntity.getId());
 
-        return countyRepository.save(foundCounty);
+        if(countyEntity.getName() != null)
+            foundCountyEntity.setName(countyEntity.getName());
+        if(countyEntity.getCityEntity() != null)
+            foundCountyEntity.setCityEntity(countyEntity.getCityEntity());
+
+        return countyRepository.save(foundCountyEntity);
 
     }
 
     @Override
-    public County deleteById(Long id){
-        County county = countyRepository.getById(id);
-        if (county != null) {
+    public CountyEntity deleteCounty(Long id){
+        CountyEntity countyEntity = countyRepository.getById(id);
+        if (countyEntity != null) {
             countyRepository.deleteById(id);
-            return county;
+            return countyEntity;
         }
-        return county;
+        return countyEntity;
     }
 }

@@ -1,19 +1,20 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Address;
-import com.finartz.RestApp.repository.AddressRepository;
-import java.util.List;
+import com.finartz.RestApp.model.dto.AddressDto;
+import com.finartz.RestApp.model.request.AddressRequest;
 
+import java.util.List;
 
 public interface AddressService {
 
-    public Address create(Address address);
+    List<AddressDto> getAddresses();
 
-    public List<Address> findAll();
+    AddressDto getAddress(Long id);
 
-    public Address findById(Long id);
+    AddressDto createAddress(AddressRequest addressRequest);
 
-    public Address update(Address address);
+    AddressDto updateAddress(AddressRequest addressRequest);
 
-    public Address deleteById(Long id);
+    AddressDto deleteAddress(Long id);
+
 }

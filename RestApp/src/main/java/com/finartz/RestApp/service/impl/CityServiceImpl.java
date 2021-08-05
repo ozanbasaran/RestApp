@@ -1,6 +1,6 @@
 package com.finartz.RestApp.service.impl;
 
-import com.finartz.RestApp.model.City;
+import com.finartz.RestApp.model.entity.CityEntity;
 import com.finartz.RestApp.repository.CityRepository;
 import com.finartz.RestApp.service.CityService;
 import org.springframework.stereotype.Service;
@@ -17,42 +17,43 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public City create(City city){
-        City save = cityRepository.save(city);
-        return save;
-    }
-
-    @Override
-    public List<City> findAll(){
-        List<City> cities = cityRepository.findAll();
+    public List<CityEntity> getCities(){
+        List<CityEntity> cities = cityRepository.findAll();
         return cities;
     }
 
     @Override
-    public City findById(Long id){
-        City city = cityRepository.getById(id);
-        return city;
+    public CityEntity getCity(Long id){
+        CityEntity cityEntity = cityRepository.getById(id);
+        return cityEntity;
     }
 
     @Override
-    public City update(City city){
-        City foundCity = cityRepository.getById(city.getId());
-
-        if(city.getName() != null)
-            foundCity.setName(city.getName());
-        if(city.getCountyList() != null)
-            foundCity.setCountyList(city.getCountyList());
-
-        return cityRepository.save(foundCity);
+    public CityEntity createCity(CityEntity cityEntity){
+        CityEntity save = cityRepository.save(cityEntity);
+        return save;
     }
 
     @Override
-    public City deleteById(Long id){
-        City city = cityRepository.getById(id);
-        if (city != null) {
+    public CityEntity updateCity(CityEntity cityEntity){
+        CityEntity foundCityEntity = cityRepository.getById(cityEntity.getId());
+
+        if(cityEntity.getName() != null)
+            foundCityEntity.setName(cityEntity.getName());
+        if(cityEntity.getCountyEntities() != null)
+            foundCityEntity.setCountyEntities(cityEntity.getCountyEntities());
+
+        return cityRepository.save(foundCityEntity);
+    }
+
+    @Override
+    public CityEntity deleteCity(Long id){
+        CityEntity cityEntity = cityRepository.getById(id);
+        if (cityEntity != null) {
             cityRepository.deleteById(id);
-            return city;
+            return cityEntity;
         }
-        return city;
+        return cityEntity;
     }
 }
+

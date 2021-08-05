@@ -1,19 +1,18 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Comment;
+import com.finartz.RestApp.model.entity.CommentEntity;
 
 import java.util.List;
 
 public interface CommentService {
 
-    public Comment create(Comment comment);
+    public List<CommentEntity> getComments();
 
-    public List<Comment> findAll();
+    public CommentEntity getComment(Long id);
 
-    public Comment findById(Long id);
+    public CommentEntity createComment(CommentEntity commentEntity);
 
-    public Comment update(Comment comment);
+    public CommentEntity updateComment(CommentEntity commentEntity);
 
-    public Comment deleteById(Long id);
+    public CommentEntity deleteComment(Long id);
 }
-

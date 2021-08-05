@@ -1,6 +1,6 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.User;
+import com.finartz.RestApp.model.entity.UserEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -8,18 +8,19 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
 
-    public UserDetails loadUserByUsername(String email);
+    @Override
+    UserDetails loadUserByUsername(String email);
 
-    public User create(User user);
+    List<UserEntity> getUsers();
 
-    public List<User> findAll();
+    UserEntity getUser(Long id);
 
-    public User findById(Long id);
+    UserEntity getUser(String email);
 
-    public User findByEmail(String email);
+    UserEntity createUser(UserEntity userEntity);
 
-    public User update(User user);
+    UserEntity updateUser(UserEntity userEntity);
 
-    public User deleteById(Long id);
+    UserEntity deleteUser(Long id);
 
 }

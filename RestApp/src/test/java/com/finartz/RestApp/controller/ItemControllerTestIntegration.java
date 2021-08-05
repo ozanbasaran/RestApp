@@ -1,9 +1,6 @@
 package com.finartz.RestApp.controller;
 
 import com.finartz.RestApp.data.TestData;
-import com.finartz.RestApp.repository.ItemRepository;
-import com.finartz.RestApp.service.ItemService;
-import com.finartz.RestApp.model.Item;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

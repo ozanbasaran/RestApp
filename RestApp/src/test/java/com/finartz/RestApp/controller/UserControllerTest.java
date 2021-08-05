@@ -3,8 +3,6 @@ package com.finartz.RestApp.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.finartz.RestApp.service.UserService;
-import com.finartz.RestApp.model.User;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;

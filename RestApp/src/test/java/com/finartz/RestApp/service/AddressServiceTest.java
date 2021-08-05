@@ -1,7 +1,5 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Address;
-import com.finartz.RestApp.repository.AddressRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;

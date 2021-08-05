@@ -1,17 +1,18 @@
 package com.finartz.RestApp.service;
-import com.finartz.RestApp.model.City;
+
+import com.finartz.RestApp.model.entity.CityEntity;
 
 import java.util.List;
 
 public interface CityService {
 
-    public City create(City city);
+    public List<CityEntity> getCities();
 
-    public List<City> findAll();
+    public CityEntity getCity(Long id);
 
-    public City findById(Long id);
+    public CityEntity createCity(CityEntity cityEntity);
 
-    public City update(City city);
+    public CityEntity updateCity(CityEntity cityEntity);
 
-    public City deleteById(Long id);
+    public CityEntity deleteCity(Long id);
 }

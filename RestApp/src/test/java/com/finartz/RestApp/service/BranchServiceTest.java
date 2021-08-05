@@ -1,9 +1,6 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Branch;
-import com.finartz.RestApp.model.Branch;
 import com.finartz.RestApp.model.enumerated.Status;
-import com.finartz.RestApp.repository.BranchRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;

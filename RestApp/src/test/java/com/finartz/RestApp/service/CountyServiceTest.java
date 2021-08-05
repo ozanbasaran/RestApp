@@ -1,8 +1,5 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.County;
-import com.finartz.RestApp.model.County;
-import com.finartz.RestApp.repository.CountyRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;

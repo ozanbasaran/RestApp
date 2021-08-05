@@ -1,22 +1,21 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Restaurant;
+import com.finartz.RestApp.model.entity.RestaurantEntity;
 import com.finartz.RestApp.model.enumerated.Status;
 
 import java.util.List;
 
 public interface RestaurantService {
 
-    public Restaurant create(Restaurant restaurant);
+    List<RestaurantEntity> getRestaurants();
 
-    public List<Restaurant> findAll();
+    List<RestaurantEntity> getRestaurants(Status status);
 
-    public Restaurant findById(Long id);
+    RestaurantEntity getRestaurant(Long id);
 
-    public List<Restaurant> findByStatus(Status status);
+    RestaurantEntity createRestaurant(RestaurantEntity restaurantEntity);
 
-    public Restaurant update(Restaurant restaurant);
+    RestaurantEntity updateRestaurant(RestaurantEntity restaurantEntity);
 
-    public Restaurant deleteById(Long id);
+    RestaurantEntity deleteRestaurant(Long id);
 }
-

@@ -1,6 +1,6 @@
 package com.finartz.RestApp.service.impl;
 
-import com.finartz.RestApp.model.Item;
+import com.finartz.RestApp.model.entity.ItemEntity;
 import com.finartz.RestApp.repository.ItemRepository;
 import com.finartz.RestApp.service.ItemService;
 import org.springframework.stereotype.Service;
@@ -17,45 +17,45 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item create(Item item){
-        Item save = itemRepository.save(item);
+    public List<ItemEntity> getItems(){
+        List<ItemEntity> itemEntities = itemRepository.findAll();
+        return itemEntities;
+    }
+
+    @Override
+    public ItemEntity getItem(Long id){
+        ItemEntity itemEntity = itemRepository.getById(id);
+        return itemEntity;
+    }
+
+    @Override
+    public ItemEntity createItem(ItemEntity itemEntity){
+        ItemEntity save = itemRepository.save(itemEntity);
         return save;
     }
 
     @Override
-    public List<Item> findAll(){
-        List<Item> items = itemRepository.findAll();
-        return items;
-    }
+    public ItemEntity updateItem(ItemEntity itemEntity){
+        ItemEntity foundItemEntity = itemRepository.getById(itemEntity.getId());
 
-    @Override
-    public Item findById(Long id){
-        Item item = itemRepository.getById(id);
-        return item;
-    }
+        if (itemEntity.getName() != null)
+            foundItemEntity.setName(itemEntity.getName());
+        if (itemEntity.getUnitType() != null)
+            foundItemEntity.setUnitType(itemEntity.getUnitType());
+        if (itemEntity.getMealEntities() != null)
+            foundItemEntity.setMealEntities(itemEntity.getMealEntities());
 
-    @Override
-    public Item update(Item item){
-        Item foundItem = itemRepository.getById(item.getId());
-
-        if (item.getName() != null)
-            foundItem.setName(item.getName());
-        if (item.getUnitType() != null)
-            foundItem.setUnitType(item.getUnitType());
-        if (item.getMealList() != null)
-            foundItem.setMealList(item.getMealList());
-
-        return itemRepository.save(item);
+        return itemRepository.save(itemEntity);
 
     }
 
     @Override
-    public Item deleteById(Long id){
-        Item item = itemRepository.getById(id);
-        if (item != null) {
+    public ItemEntity deleteItem(Long id){
+        ItemEntity itemEntity = itemRepository.getById(id);
+        if (itemEntity != null) {
             itemRepository.deleteById(id);
-            return item;
+            return itemEntity;
         }
-        return item;
+        return itemEntity;
     }
 }

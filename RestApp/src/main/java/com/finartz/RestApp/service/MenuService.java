@@ -1,19 +1,20 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Menu;
+import com.finartz.RestApp.model.entity.MenuEntity;
 
 import java.util.List;
 
 public interface MenuService {
 
-    public Menu create(Menu menu);
+    List<MenuEntity> getMenus();
 
-    public List<Menu> findAll();
+    MenuEntity getMenu(Long id);
 
-    public Menu findById(Long id);
+    MenuEntity createMenu(MenuEntity menuEntity);
 
-    public Menu update(Menu menu);
+    MenuEntity updateMenu(MenuEntity menuEntity);
 
-    public Menu deleteById(Long id);
+    MenuEntity deleteMenu(Long id);
+
 }
 

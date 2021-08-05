@@ -1,19 +1,19 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.County;
+import com.finartz.RestApp.model.entity.CountyEntity;
 
 import java.util.List;
 
 public interface CountyService {
 
-    public County create(County county);
+    public List<CountyEntity> getCounties();
 
-    public List<County> findAll();
+    public CountyEntity getCounty(Long id);
 
-    public County findById(Long id);
+    public CountyEntity createCounty(CountyEntity countyEntity);
 
-    public County update(County county);
+    public CountyEntity updateCounty(CountyEntity countyEntity);
 
-    public County deleteById(Long id);
+    public CountyEntity deleteCounty(Long id);
 
 }

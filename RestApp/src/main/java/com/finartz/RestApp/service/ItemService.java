@@ -1,19 +1,18 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Item;
+import com.finartz.RestApp.model.entity.ItemEntity;
 
 import java.util.List;
 
 public interface ItemService {
 
-    public Item create(Item item);
+    public List<ItemEntity> getItems();
 
-    public List<Item> findAll();
+    public ItemEntity getItem(Long id);
 
-    public Item findById(Long id);
+    public ItemEntity createItem(ItemEntity itemEntity);
 
-    public Item update(Item item);
+    public ItemEntity updateItem(ItemEntity itemEntity);
 
-    public Item deleteById(Long id);
+    public ItemEntity deleteItem(Long id);
 }
-

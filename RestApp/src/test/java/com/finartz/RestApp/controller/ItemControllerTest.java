@@ -3,8 +3,6 @@ package com.finartz.RestApp.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.finartz.RestApp.model.Item;
-import com.finartz.RestApp.service.ItemService;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

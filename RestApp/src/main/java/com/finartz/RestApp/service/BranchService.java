@@ -1,23 +1,24 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Branch;
+import com.finartz.RestApp.model.entity.AddressEntity;
+import com.finartz.RestApp.model.entity.BranchEntity;
 import com.finartz.RestApp.model.enumerated.Status;
 
 import java.util.List;
 
 public interface BranchService {
 
-    public Branch create(Branch branch);
+    List<BranchEntity> getBranches();
 
-    public List<Branch> findAll();
+    BranchEntity getBranch(Long id);
 
-    public Branch findById(Long id);
+    List<BranchEntity> getBranches(Status status);
 
-    public List<Branch> findByStatus(Status status);
+    List<BranchEntity> getBranches(AddressEntity addressEntity);
 
-    public List<Branch> findByAddress_County_Id(Long county_id);
+    BranchEntity createBranch(BranchEntity branchEntity);
 
-    public Branch update(Branch branch);
+    BranchEntity updateBranch(BranchEntity branchEntity);
 
-    public Branch deleteById(Long id);
+    BranchEntity deleteBranch(Long id);
 }

@@ -1,8 +1,5 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.Meal;
-import com.finartz.RestApp.model.Meal;
-import com.finartz.RestApp.repository.MealRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;

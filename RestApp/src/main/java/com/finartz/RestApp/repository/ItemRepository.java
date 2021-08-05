@@ -1,4 +1,8 @@
 package com.finartz.RestApp.repository;
-import com.finartz.RestApp.model.Item;
-public interface ItemRepository extends BaseRepository<Item>{
+
+import com.finartz.RestApp.model.entity.ItemEntity;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ItemRepository extends BaseRepository<ItemEntity> {
 }

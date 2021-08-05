@@ -1,8 +1,5 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.CreditCard;
-import com.finartz.RestApp.model.CreditCard;
-import com.finartz.RestApp.repository.CreditCardRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;

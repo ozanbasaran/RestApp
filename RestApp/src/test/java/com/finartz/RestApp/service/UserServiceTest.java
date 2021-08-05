@@ -1,9 +1,6 @@
 package com.finartz.RestApp.service;
 
-import com.finartz.RestApp.model.User;
-import com.finartz.RestApp.model.User;
 import com.finartz.RestApp.model.enumerated.Role;
-import com.finartz.RestApp.repository.UserRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
